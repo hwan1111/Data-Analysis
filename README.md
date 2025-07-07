@@ -9,7 +9,7 @@
 
 ## 📂 폴더 구조
 ```plaintext
-📂 learning-python-sql/
+📂 Data-Analysis/
  ┣ 📂 python-exercises/      # Python 실습 코드
  ┃ ┣ 📜 pandas_basics.ipynb
  ┃ ┣ 📜 numpy_basics.ipynb
