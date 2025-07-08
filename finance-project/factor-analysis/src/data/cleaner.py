@@ -6,7 +6,7 @@ import numpy as np
 from datetime import datetime, timedelta
 from tqdm import tqdm
 
-def drop_nan(df, excluded_tickers_path='excluded_tickers.json'):
+def drop_nan(df, excluded_tickers_path='data/excluded_tickers.json'):
     with open(excluded_tickers_path) as file:
         excluded_tickers = set(json.load(file)['excluded_tickers'])
 
