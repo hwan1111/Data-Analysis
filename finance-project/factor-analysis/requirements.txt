@@ -1,0 +1,17 @@
+# Data handling
+pandas==2.2.2
+numpy==2.0.2
+
+# Visualization
+matplotlib==3.10.0
+seaborn==0.13.2
+
+# Progress bar
+tqdm==4.67.1
+
+# Scaling & ML tools
+scikit-learn==1.6.1
+
+# Financial data
+pykrx==1.0.51
+yfinance==0.2.64
