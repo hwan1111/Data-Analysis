@@ -219,7 +219,7 @@ def update_kospi_sector(csv_path='업종분류 현ᄒ
     df_sector['종목코드'] = df_sector['종목코드'].astype(str).str.zfill(6)
     return df_sector
 
-def update_kospi():
+def update_kospi(clean=True):
     price_df = update_kospi_ohlcv()
     fundamental_df = update_kospi_fundamental()
     marketcap_df = update_kospi_marketcap()
@@ -250,7 +250,11 @@ def update_kospi():
             '등락률', '시가총액', '거래량', '거래대금',
             'BPS', 'PER', 'PBR', 'EPS', 'DIV', 'DPS']
 
-    return merge_df[cols]
+    result = merge_df[cols]
+    if clean is True:
+        result = drop_nan(result)
+        
+    return result
 
 def drop_nan(df, excluded_tickers_path='excluded_tickers.json'):
     with open(excluded_tickers_path) as file:
