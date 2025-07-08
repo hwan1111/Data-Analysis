@@ -10,14 +10,10 @@
 ## 📂 폴더 구조
 ```plaintext
 📂 Data-Analysis/
- ┣ 📂 python-exercises/      # Python 실습 코드
- ┃ ┣ 📜 pandas_basics.ipynb
- ┃ ┣ 📜 numpy_basics.ipynb
- ┃ ┗ 📜 api_requests.ipynb
+ ┣ 📂 finance-analysis/
+ ┃ ┗ 📂 factor-analysis/
+ ┣ 📂 python-exercises/      # Python 연습 코드
  ┣ 📂 sql-exercises/         # SQL 연습 코드
- ┃ ┣ 📜 sql_basics.ipynb
- ┃ ┣ 📜 advanced_sql.ipynb
- ┃ ┗ 📜 chinook_queries.sql
  ┣ 📜 README.md              # 레포지토리 소개 파일
  ┗ 📜 summary.md             # 학습 개요 정리 파일
 ```
