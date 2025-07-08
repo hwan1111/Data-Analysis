@@ -43,7 +43,7 @@
 📁 finance-projects/
  ┣ 📁 factor-analysis/
  ┃  ┣ 📁 data/                       # CSV, Parquet 등 원천/가공 데이터
- ┃  ┣ 📁 src/                        # loader.py, scaling.py 등 기능 모듈
  ┃  ┣ 📁 notebooks/                  # 분석 노트북
+ ┃  ┣ 📁 src/                        # loader.py, scaling.py 등 기능 모듈
  ┃  ┣ 📜 requirements.txt            # 의존성 패키지
  ┃  ┗ 📜 README.md
