@@ -213,3 +213,41 @@ def update_kospi_marketcap(filepath="kospi_marketcap.parquet"):
 
     print(f"{yesterday_str}까지 반영 완료. 총 {len(df_all):,} rows → {filepath}")
     return df_all
+    
+def update_kospi_sector(csv_path='업종분류 현황.csv'):
+    df_sector = pd.read_csv(csv_path, encoding='euc-kr')
+    df_sector['종목코드'] = df_sector['종목코드'].astype(str).str.zfill(6)
+    return df_sector
+
+def update_kospi():
+    price_df = update_kospi_ohlcv()
+    fundamental_df = update_kospi_fundamental()
+    marketcap_df = update_kospi_marketcap()
+    sector_df = update_kospi_sector()
+
+    merge_df = pd.merge(
+        price_df,
+        sector_df[['종목코드', '업종명']],
+        on=['종목코드'],
+        how='left'
+    )
+
+    merge_df = pd.merge(
+        merge_df,
+        fundamental_df.drop(columns=['종목명']),
+        on=['날짜', '종목코드'],
+        how='left'
+    )
+
+    merge_df = pd.merge(
+        merge_df,
+        marketcap_df.drop(columns=['종목명']),
+        on=['날짜', '종목코드'],
+        how='left'
+    )
+
+    cols = ['날짜', '종목코드', '종목명', '업종명', '종가',
+            '등락률', '시가총액', '거래량', '거래대금',
+            'BPS', 'PER', 'PBR', 'EPS', 'DIV', 'DPS']
+
+    return merge_df[cols]
