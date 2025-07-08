@@ -251,3 +251,11 @@ def update_kospi():
             'BPS', 'PER', 'PBR', 'EPS', 'DIV', 'DPS']
 
     return merge_df[cols]
+
+def drop_nan(df, excluded_tickers_path='excluded_tickers.json'):
+    with open(excluded_tickers_path) as file:
+        excluded_tickers = set(json.load(file)['excluded_tickers'])
+
+    df = df[~df['종목코드'].isin(excluded_tickers)].reset_index(drop=True)
+    df['등락률'] = df['등락률'].fillna(0)
+    return df
