@@ -10,7 +10,7 @@ from pykrx import bond as pkbond
 
 from src.data.cleaner import drop_nan
 
-def update_kospi_ohlcv(filepath="kospi_ohlcv.parquet"):
+def update_kospi_ohlcv(filepath="data/kospi_ohlcv.parquet"):
     today = datetime.today().date()
     yesterday = today - timedelta(days=1)
     yesterday_str = yesterday.strftime('%Y%m%d')
@@ -79,8 +79,8 @@ def update_kospi_ohlcv(filepath="kospi_ohlcv.parquet"):
     return df_all
 
 def update_kospi_fundamental(
-        filepath='kospi_fundamental.parquet',
-        json_path='excluded_tickers.json'):
+        filepath='data/kospi_fundamental.parquet',
+        json_path='data/excluded_tickers.json'):
 
     with open(json_path, 'r') as file:
         EXCLUDED_TICKERS = set(json.load(file)['excluded_tickers'])
@@ -151,7 +151,7 @@ def update_kospi_fundamental(
     print(f"{yesterday_str}까지 반영 완료. 총 {len(df_all):,} rows → {filepath}")
     return df_all
 
-def update_kospi_marketcap(filepath="kospi_marketcap.parquet"):
+def update_kospi_marketcap(filepath="data/kospi_marketcap.parquet"):
     today = datetime.today().date()
     yesterday = today - timedelta(days=1)
     yesterday_str = yesterday.strftime('%Y%m%d')
@@ -213,7 +213,7 @@ def update_kospi_marketcap(filepath="kospi_marketcap.parquet"):
     print(f"{yesterday_str}까지 반영 완료. 총 {len(df_all):,} rows → {filepath}")
     return df_all
     
-def update_kospi_sector(csv_path='업종분류 현황.csv'):
+def update_kospi_sector(csv_path='data/업종분류 현황.csv'):
     df_sector = pd.read_csv(csv_path, encoding='euc-kr')
     df_sector['종목코드'] = df_sector['종목코드'].astype(str).str.zfill(6)
     return df_sector
