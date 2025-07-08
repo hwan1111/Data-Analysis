@@ -41,9 +41,9 @@
 
 ```plaintext
 📁 finance-projects/
- ┗ 📁 factor-analysis/
-    ┣ 📜 factor_analysis.ipynb       # 메인 분석 노트북
-    ┣ 📜 factor_utils.py             # 팩터 계산 관련 함수
-    ┣ 📜 requirements.txt            # 의존성 패키지
-    ┣ 📜 README.md                   # 프로젝트 설명 파일
-    ┗ 📁 data/                        # 수집된 데이터 (예: CSV)
+ ┣ 📁 factor-analysis/
+ ┃  ┣ 📁 data/                       # CSV, Parquet 등 원천/가공 데이터
+ ┃  ┣ 📁 src/                        # loader.py, scaling.py 등 기능 모듈
+ ┃  ┣ 📁 notebooks/                  # 분석 노트북
+ ┃  ┣ 📜 requirements.txt            # 의존성 패키지
+ ┃  ┗ 📜 README.md
